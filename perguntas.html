@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Perguntas</title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+  <h1>Responda as perguntas</h1>
+
+  <form id="quiz">
+
+    <p>1️⃣ Qual é o seu nome?</p>
+    <input type="text" id="nome"><br><br>
+
+    <p>2️⃣ Qual é a sua idade?</p>
+    <input type="number" id="idade"><br><br>
+
+    <p>3️⃣ Qual jogo o Aphelion joga?</p>
+    <input type="radio" name="jogo" value="da hood"> da hood<br>
+    <input type="radio" name="jogo" value="free fire"> free fire<br>
+    <input type="radio" name="jogo" value="jogo de grau"> jogo de grau<br><br>
+
+    <p>4️⃣ Qual a figurinha mais favorita do Aphelion?</p>
+    <input type="radio" name="figurinha" value="piscadinha"> piscadinha<br>
+    <input type="radio" name="figurinha" value="cachorro"> cachorro balançando a perninha<br>
+    <input type="radio" name="figurinha" value="bob sponja"> bob sponja<br><br>
+
+    <p>5️⃣ O que o Aphelion mais fala em call?</p>
+    <input type="radio" name="call" value="bruhhh"> "bruhhh"<br>
+    <input type="radio" name="call" value="tropa"> "tropa"<br>
+    <input type="radio" name="call" value="fuck"> "fuck"<br><br>
+
+    <p>6️⃣ Você joga muito com o Aphelion?</p>
+    <input type="radio" name="joga" value="sim"> Sim<br>
+    <input type="radio" name="joga" value="as vezes"> Às vezes<br>
+    <input type="radio" name="joga" value="nao"> Não<br><br>
+
+    <p>7️⃣ Qual é a personalidade do Aphelion?</p>
+    <input type="radio" name="personalidade" value="engracado"> engraçado<br>
+    <input type="radio" name="personalidade" value="fechado"> fechado<br>
+    <input type="radio" name="personalidade" value="bob sponja"> bob sponja<br><br>
+
+    <p>8️⃣ Você gosta do Aphelion?</p>
+    <input type="radio" name="gosta" value="sim"> Sim<br>
+    <input type="radio" name="gosta" value="nao"> Não<br><br>
+
+    <button type="button" onclick="corrigir()">Enviar</button>
+
+  </form>
+
+  <script>
+    function corrigir() {
+      let pontos = 0;
+
+      // respostas corretas
+      if (document.querySelector('input[name="jogo"]:checked')?.value === "da hood") pontos++;
+      if (document.querySelector('input[name="figurinha"]:checked')?.value === "piscadinha") pontos++;
+      if (document.querySelector('input[name="call"]:checked')?.value === "bruhhh") pontos++;
+      if (document.querySelector('input[name="joga"]:checked')?.value === "sim") pontos++;
+      if (document.querySelector('input[name="personalidade"]:checked')?.value === "engracado") pontos++;
+      if (document.querySelector('input[name="gosta"]:checked')?.value === "sim") pontos++;
+
+      // nome e idade contam como ponto só se preencher
+      if (document.getElementById("nome").value !== "") pontos++;
+      if (document.getElementById("idade").value !== "") pontos++;
+
+      alert("Você fez " + pontos + " de 8 pontos");
+
+      if (pontos >= 6) {
+        window.location.href = "namoro.html";
+      } else {
+        alert("Você não é a menina 😢");
+      }
+    }
+  </script>
+   <script>
+    function irParaPerguntas() {
+      window.location.href = "perguntas.html";
+    }
+  </script>
+
+
+</body>
+</html>
